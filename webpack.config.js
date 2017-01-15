@@ -29,7 +29,7 @@ module.exports = {
   	]
   },
   plugins: [
-  	new webpack.optmize.CommonsChunkPlugin({
+  	new webpack.optimize.CommonsChunkPlugin({
   		name: 'vendor'
   	})
   ]
