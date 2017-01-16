@@ -10,3 +10,8 @@ git clone https://github.com/StephenGrider/WebpackProject.git
 cd WebpackProject
 npm install
 ```
+
+
+manifest as a common chunk mode. 
+(it contains the webpack runtime)
+Brilliant explanation here http://survivejs.com/webpack/building-with-webpack/splitting-bundles/
