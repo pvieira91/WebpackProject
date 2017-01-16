@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
 	'faker', 'react', 'lodash', 'redux', 'react-redux', 'react-dom',
@@ -13,24 +14,27 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name][chunkhash].js'
   },
   module: {
   	rules: [
   		{
   			use: 'babel-loader',
-  			test: /.js$/,
+  			test: /\.js$/,
   			exclude: /node_modules/
   		},
   		{
   			use: ['style-loader', 'css-loader'],
-  			test: /.css$/
+  			test: /\.css$/
   		},
   	]
   },
   plugins: [
   	new webpack.optimize.CommonsChunkPlugin({
   		name: 'vendor'
+  	}),
+  	new HtmlWebpackPlugin({
+  		template: 'src/index.html'
   	})
   ]
 };
